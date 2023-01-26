@@ -1,3 +1,3 @@
 public interface Shape {
-    double distToOrigin();
+    double area();
 }
