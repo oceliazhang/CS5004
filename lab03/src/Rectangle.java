@@ -21,8 +21,9 @@ public class Rectangle implements Shape {
 
     @Override
     public double distanceFromOrigin() {
-        double distance = pow(pow(x, 2) + pow(y, 2), 0.5);
-        return distance;
+        double distance = pow(pow(x, 2) + pow(y, 2), 0.5);  // repetitive
+                               // (only the parameters are different, the formula is exactly same)
+        return distance;  // repetitive
     }
 
     @Override
@@ -44,12 +45,9 @@ public class Rectangle implements Shape {
 
     @Override
     public int compareTo(Shape s) {
-        if (this.area() > s.area()) { return 1; }       // Repetitive
-        if (this.area() == s.area()) { return 0; }      // Repetitive
-        if (this.area() < s.area()) { return -1; }      // Repetitive
-
-        return 0;
+        return Double.compare(this.area(), s.area());  // repetitive
     }
+
 }
 
 
