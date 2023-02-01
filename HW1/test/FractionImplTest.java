@@ -49,27 +49,61 @@ public class FractionImplTest {
     }
 
     @Test
-    public void reciprocal() {
-        FractionImpl newFractionR = new FractionImpl(8,4);
-        assertEquals(newFractionR, myFraction.reciprocal());
+    public void reciprocalNegative() {
+        FractionImpl fractionNegative = new FractionImpl(-1,2);
+        FractionImpl expectFraction =  new FractionImpl(-2,1);
+        assertEquals(expectFraction, fractionNegative.reciprocal());
     }
 
     @Test
-    public void add() {
+    public void reciprocalPositive() {
+        FractionImpl expectFractionPositive =  new FractionImpl(8,4);
+        assertEquals(expectFractionPositive, myFraction.reciprocal());
+    }
+
+    @Test
+    public void addNegative() {
+        Fraction other = new FractionImpl(-1, 4);
+        FractionImpl addResult =  new FractionImpl(2,8);
+        assertEquals(addResult, myFraction.add(other));
+    }
+
+    @Test
+    public void addPositive() {
         Fraction other = new FractionImpl(1, 4);
         FractionImpl addResult =  new FractionImpl(24,32);
         assertEquals(addResult, myFraction.add(other));
     }
 
     @Test
-    public void compareTo() {
+    public void addTwoNegative() {
+        FractionImpl oneNegative = new FractionImpl(-1, 4);
+        FractionImpl twoNegative =  new FractionImpl(-2,8);
+        FractionImpl addResult = new FractionImpl(-16,32);
+        assertEquals(addResult, oneNegative.add(twoNegative));
+    }
+
+    @Test
+    public void compareToSmall() {
         Fraction another = new FractionImpl(1,4);
         assertEquals(1, myFraction.compareTo(another));
     }
 
     @Test
+    public void compareToSame() {
+        Fraction another = new FractionImpl(1,2);
+        assertEquals(0, myFraction.compareTo(another));
+    }
+
+    @Test
+    public void compareToBig() {
+        Fraction another = new FractionImpl(1,1);
+        assertEquals(-1, myFraction.compareTo(another));
+    }
+
+    @Test
     public void gcd() {
-        assertEquals(8, myFraction.gcd(24, 32));
+        assertEquals(8, FractionImpl.gcd(24, 32));
     }
 
     @Test
