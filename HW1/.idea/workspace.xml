@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb94ce9b-e224-4075-a965-212785f3da58" name="Changes" comment="add tests">
+    <list default="true" id="fb94ce9b-e224-4075-a965-212785f3da58" name="Changes" comment="final version">
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Bishop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/ChessPiece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Color.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Knight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Pawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Queen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/src/Rook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/test/BishopTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/test/KnightTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/test/PawnTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW2/test/QueenTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab04/src/ElementNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab04/src/EmptyNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab04/src/IListOfInts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FractionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FractionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW2/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HW1/FractionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HW1/FractionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/HW1/FractionImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/HW1/FractionImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/src/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +149,9 @@
       <updated>1675126022027</updated>
       <workItem from="1675126023351" duration="15881000" />
       <workItem from="1675231105476" duration="770000" />
-      <workItem from="1675313056570" duration="288000" />
+      <workItem from="1675313056570" duration="970000" />
+      <workItem from="1675319663206" duration="1970000" />
+      <workItem from="1675644313687" duration="1545000" />
     </task>
     <task id="LOCAL-00001" summary="add tests">
       <created>1675231267140</created>
@@ -144,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675231267140</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="final version">
+      <created>1675313420267</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675313420267</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +189,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tests" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
 </project>
