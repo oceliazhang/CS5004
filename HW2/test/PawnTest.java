@@ -5,33 +5,53 @@ import static org.junit.Assert.*;
 public class PawnTest {
     private Pawn myPawn = new Pawn(1,1,Color.WHITE);
 
+    /**
+     * test constructor.
+     * if row or column out of range, throws IllegalArgumentException
+     */
     @Test (expected = IllegalArgumentException.class)
     public void testConstructor() {
         Pawn wrongPawn = new Pawn(2, -3, Color.BLACK);
     }
 
+    /**
+     * test getRow() method
+     */
     @Test
-    public void getRow() {
+    public void testGetRow() {
         assertEquals(1, myPawn.getRow());
     }
 
+    /**
+     * test getColumn() method
+     */
     @Test
-    public void getColumn() {
+    public void testGetColumn() {
         assertEquals(1, myPawn.getColumn());
     }
 
+    /**
+     * test getColor() method
+     */
     @Test
-    public void getColor() {
+    public void testGetColor() {
         assertEquals("WHITE", myPawn.getColor().toString());
     }
 
+    /**
+     * test canMove() method,
+     * if row or column out of range, throws IllegalArgumentException
+     */
     @Test (expected = IllegalArgumentException.class)
-    public void canMoveWrong() {
+    public void testCanMoveWrong() {
         myPawn.canMove(-1,0);
     }
 
+    /**
+     * test canMove() method
+     */
     @Test
-    public void canMove() {
+    public void testCanMove() {
         // white pawn test
         assertTrue(myPawn.canMove(2,1));
         assertTrue(myPawn.canMove(2,2));
@@ -44,8 +64,11 @@ public class PawnTest {
         assertFalse(blackPawn.canMove(7,2));
     }
 
+    /**
+     * test canKill() method
+     */
     @Test
-    public void canKill() {
+    public void testCanKill() {
         ChessPiece pieceA = new Pawn(2,2,Color.WHITE);
         assertFalse(myPawn.canKill(pieceA));
         ChessPiece pieceB = new Pawn(2,2,Color.BLACK);
