@@ -38,7 +38,6 @@ public class EmptyNode implements IListOfInts {
 
     /**
      * return the data locating at the given index
-     *
      * @param index the index where we want to get the data
      * @return the data locating at the given index
      * @throws IllegalArgumentException since it's an empty list
