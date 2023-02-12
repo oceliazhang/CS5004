@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb94ce9b-e224-4075-a965-212785f3da58" name="Changes" comment="final version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HW1/FractionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HW1/FractionImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/HW1/FractionImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/HW1/FractionImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FractionImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FractionImplTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="fb94ce9b-e224-4075-a965-212785f3da58" name="Changes" comment="add test javadoc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +133,7 @@
       <workItem from="1675313056570" duration="970000" />
       <workItem from="1675319663206" duration="1970000" />
       <workItem from="1675644313687" duration="1545000" />
-      <workItem from="1676177837453" duration="722000" />
+      <workItem from="1676177837453" duration="911000" />
     </task>
     <task id="LOCAL-00001" summary="add tests">
       <created>1675231267140</created>
@@ -154,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675313420267</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add test javadoc">
+      <created>1676178618320</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676178618320</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +179,7 @@
     </ignored-roots>
     <MESSAGE value="add tests" />
     <MESSAGE value="final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version" />
+    <MESSAGE value="add test javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test javadoc" />
   </component>
 </project>
