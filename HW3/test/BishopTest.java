@@ -68,4 +68,13 @@ public class BishopTest {
         ChessPiece pieceC = new Pawn(2,5,Color.BLACK);
         assertFalse(myBishop.canKill(pieceC));
     }
+
+    /**
+     * test toString() method
+     */
+    @Test
+    public void testToString() {
+        assertEquals("Bishop{row=0, column=2, color=BLACK}",
+            myBishop.toString());
+    }
 }

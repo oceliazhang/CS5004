@@ -68,4 +68,13 @@ public class QueenTest {
         ChessPiece pieceC = new Pawn(1,5,Color.BLACK);
         assertFalse(myQueen.canKill(pieceC));
     }
+
+    /**
+     * test toString() method
+     */
+    @Test
+    public void testToString() {
+        assertEquals("Queen{row=0, column=3, color=BLACK}",
+            myQueen.toString());
+    }
 }

@@ -68,4 +68,13 @@ public class RookTest {
         ChessPiece pieceC = new Pawn(2,5,Color.BLACK);
         assertFalse(myRook.canKill(pieceC));
     }
+
+    /**
+     * test toString() method
+     */
+    @Test
+    public void testToString() {
+        assertEquals("Rook{row=0, column=0, color=BLACK}",
+            myRook.toString());
+    }
 }

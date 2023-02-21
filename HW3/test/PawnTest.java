@@ -76,4 +76,13 @@ public class PawnTest {
         ChessPiece pieceC = new Pawn(2,5,Color.WHITE);
         assertFalse(myPawn.canKill(pieceC));
     }
+
+    /**
+     * test toString() method
+     */
+    @Test
+    public void testToString() {
+        assertEquals("Pawn{row=1, column=1, color=WHITE}",
+            myPawn.toString());
+    }
 }

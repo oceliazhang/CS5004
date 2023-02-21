@@ -1,7 +1,4 @@
-public class Knight implements ChessPiece{
-    private int row;
-    private int column;
-    private Color color;
+public class Knight extends AbstractChessPiece {
 
     /**
      * Construct a Knight object using the given row, column, color
@@ -11,40 +8,7 @@ public class Knight implements ChessPiece{
      * @throws IllegalArgumentException if row and column out of range
      */
     public Knight(int row, int column, Color color) {
-        if (row < 0 || row > 7 || column < 0 || column > 7) {
-            throw new IllegalArgumentException
-                    ("row and column should be within the range of [0,7]");
-        }
-        this.row = row;
-        this.column = column;
-        this.color = color;
-    }
-
-    /**
-     * Get the row where locate the chess piece
-     * @return the row of the current chess piece
-     */
-    @Override
-    public int getRow() {
-        return this.row;
-    }
-
-    /**
-     * Get the column where locate the chess piece
-     * @return the column of the current chess piece
-     */
-    @Override
-    public int getColumn() {
-        return this.column;
-    }
-
-    /**
-     * Get the color of the chess piece
-     * @return the color of the chess piece
-     */
-    @Override
-    public Color getColor() {
-        return this.color;
+        super(row, column, color);
     }
 
     /**
@@ -61,11 +25,31 @@ public class Knight implements ChessPiece{
             throw new IllegalArgumentException
                     ("row and column should be within the range of [0,7]");
         }
-        int rowDiff = Math.abs(this.row - row);
-        int colDiff = Math.abs(this.column - col);
+        int rowDiff = Math.abs(this.getRow() - row);
+        int colDiff = Math.abs(this.getColumn() - col);
         if ((rowDiff == 2) && (colDiff == 1)) {
             return true;
         } else return (rowDiff == 1) && (colDiff == 2);
+    }
+
+    /**
+     * Return if it can move to a given cell, "in between" squares are considered
+     * @param row   the row of the target location
+     * @param col   the column of the target location
+     * @param board the current chess board
+     * @return True if it can move to the target location, False if it can't move to the target
+     * @throws IllegalArgumentException if row or column out of range
+     */
+    @Override
+    public Boolean canMoveV2(int row, int col, ChessBoard board) {
+        // check if the moving pattern is correct
+        if (!this.canMove(row, col)) {
+            return false;
+        }
+
+        // check if the destination is a same-color piece
+        return board.getPiece(row, col) == ChessPiece.EMPTY
+            || board.getPiece(row, col).getColor() != this.getColor();
     }
 
     /**
@@ -75,7 +59,20 @@ public class Knight implements ChessPiece{
      */
     @Override
     public Boolean canKill(ChessPiece piece) {
-        return (this.color != piece.getColor()) &&
+        return (this.getColor() != piece.getColor()) &&
                 canMove(piece.getRow(), piece.getColumn());
+    }
+
+    /**
+     * toString() method
+     * @return its row, column, and color
+     */
+    @Override
+    public String toString() {
+        return "Knight{" +
+            "row=" + getRow() +
+            ", column=" + getColumn() +
+            ", color=" + getColor() +
+            '}';
     }
 }
