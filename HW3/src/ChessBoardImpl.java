@@ -1,12 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChessBoardImpl implements ChessBoard {
 
-  private ChessPiece[][] board;
+  private ArrayList<ArrayList<ChessPiece>> board;
 
   /**
    * Constructs an empty board
    */
   public ChessBoardImpl() {
-    this.board = new ChessPiece[8][8];
+    board = new ArrayList<>();
+    for (int i = 0; i < 8; i++) {
+      ArrayList<ChessPiece> row = new ArrayList<>(8);
+      for (int j = 0; j < 8; j++) {
+        row.add(ChessPiece.EMPTY);
+      }
+      board.add(row);
+    }
   }
 
   /**
@@ -16,7 +26,7 @@ public class ChessBoardImpl implements ChessBoard {
   public ChessBoardImpl(ChessPiece[] startingPieces) {
     this();  // call the default constructor to create an empty board
     for (ChessPiece piece : startingPieces) {
-      board[piece.getRow()][piece.getColumn()] = piece;
+      board.get(piece.getRow()).set(piece.getColumn(), piece);
     }
   }
 
@@ -33,10 +43,8 @@ public class ChessBoardImpl implements ChessBoard {
       throw new IllegalArgumentException
           ("row and column should be within the range of [0,7]");
     }
-    if (board[row][col] == null) {
-      return ChessPiece.EMPTY;
-    } else
-      return board[row][col];
+    return board.get(row).get(col) == null ?
+        ChessPiece.EMPTY : board.get(row).get(col);
   }
 
   /**
@@ -45,14 +53,14 @@ public class ChessBoardImpl implements ChessBoard {
    */
   @Override
   public String toString() {
-    String pieces = "";
+    StringBuilder pieces = new StringBuilder();
     for (int row = 0; row < 8; row++) {
       for (int col = 0; col < 8; col++) {
-        if (this.getPiece(row, col) != ChessPiece.EMPTY) {
-          pieces += this.getPiece(row, col).toString() + "\n";
+        if (getPiece(row, col) != ChessPiece.EMPTY) {
+          pieces.append(getPiece(row, col).toString()).append("\n");
         }
       }
     }
-    return pieces;
+    return pieces.toString();
   }
 }
