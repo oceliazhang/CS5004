@@ -1,5 +1,5 @@
 public class Triangle extends AbstractShape{
-  private Point2D reference, point2, point3;
+  private Point2D point2, point3;
 
   /**
    * Constructs a triangle with three points
@@ -10,7 +10,6 @@ public class Triangle extends AbstractShape{
    */
   public Triangle(Point2D reference, Point2D point2, Point2D point3) {
     super(reference);
-    this.reference = reference;
     this.point2 = point2;
     this.point3 = point3;
     if (reference.equals(point2) || reference.equals(point3) ||
