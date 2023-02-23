@@ -44,4 +44,23 @@ public class Point2D {
   public double getY() {
     return y;
   }
+
+  /**
+   * Override the equals method to make it compare the x and y of two points.
+   * @param obj a shape object
+   * @return true if the two points have same x and y, false if not
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+
+    if (!(obj instanceof Point2D other)) {
+      return false;
+    }
+
+    return Double.compare(x, other.x) == 0 && Double.compare(y, other.y) == 0;
+  }
+
 }

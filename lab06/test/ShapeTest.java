@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
  */
 public class ShapeTest {
 
-  Shape circle1,circle2,circle3,rect1,rect2;
+  Shape circle1,circle2,circle3,rect1,rect2,tri1,tri2;
 
   @Before
   public void setup() {
@@ -18,6 +18,9 @@ public class ShapeTest {
 
     rect1 = new Rectangle(5,6,2.5,2);
     rect2 = new Rectangle(2,3,10,10);
+
+    tri1 = new Triangle(new Point2D(1,1), new Point2D(2,2), new Point2D(1,3));
+    tri2 = new Triangle(new Point2D(2.5,2.5), new Point2D(0,5), new Point2D(4,9));
   }
 
   /**
@@ -38,6 +41,10 @@ public class ShapeTest {
     assertEquals("Rectangle: LL corner (2.000,3.000) width 10.000 height 10" +
             ".000",rect2
             .toString());
+    assertEquals("Triangle: reference (1.000,1.000) point2 (2.000,2.000) "
+        + "point3 (1.000,3.000)",tri1.toString());
+    assertEquals("Triangle: reference (2.500,2.500) point2 (0.000,5.000) "
+        + "point3 (4.000,9.000)",tri2.toString());
   }
 
   /**
@@ -50,6 +57,8 @@ public class ShapeTest {
     assertEquals(Math.PI*400,circle3.area(),0.001);
     assertEquals(5,rect1.area(),0.001);
     assertEquals(100,rect2.area(),0.001);
+    assertEquals(1,tri1.area(),0.001);
+    assertEquals(10,tri2.area(),0.001);
   }
 
   /**
@@ -62,26 +71,91 @@ public class ShapeTest {
     assertEquals(2*Math.PI*20,circle3.perimeter(),0.001);
     assertEquals(9,rect1.perimeter(),0.001);
     assertEquals(40,rect2.perimeter(),0.001);
+    assertEquals(4.828,tri1.perimeter(),0.001);
+    assertEquals(15.8631,tri2.perimeter(),0.001);
   }
 
+  /**
+   * Tests whether the resize methods work correctly for all shapes
+   */
   @Test
   public void testResizes() {
     Shape resizedCircle1,resizedCircle2,resizedCircle3,resizedRect1,
-            resizedRect2;
+            resizedRect2,resizedTri1,resizedTri2;
 
     resizedCircle1 = circle1.resize(2.5);
     resizedCircle2 = circle2.resize(0);
     resizedCircle3 = circle3.resize(10);
     resizedRect1 = rect1.resize(12.5);
     resizedRect2 = rect2.resize(0.001);
+    resizedTri1 = tri1.resize(4);
+    resizedTri2 = tri2.resize(121);
 
     assertEquals(2.5*circle1.area(),resizedCircle1.area(),0.001);
     assertEquals(0*circle2.area(),resizedCircle2.area(),0.001);
     assertEquals(10*circle3.area(),resizedCircle3.area(),0.001);
     assertEquals(12.5*rect1.area(),resizedRect1.area(),0.001);
     assertEquals(0.001*rect2.area(),resizedRect2.area(),0.001);
+    assertEquals(4*tri1.area(),resizedTri1.area(),0.001);
+    assertEquals(121*tri2.area(),resizedTri2.area(),0.001);
   }
 
+  /**
+   * test the constructor of the triangle,
+   * it throws an IllegalArgumentException when points are not unique
+   */
+  @Test (expected = IllegalArgumentException.class)
+  public void testTriangleConstructor() {
+    Triangle triSamePoint = new Triangle(new Point2D(0,0),
+        new Point2D(0,0), new Point2D(1,1));
+  }
 
+  /**
+   * test isCollinear method
+   */
+  @Test
+  public void testIsCollinear() {
+    Triangle triCollinear1 = new Triangle(new Point2D(0,0),
+        new Point2D(0,1), new Point2D(0,4));
+    Triangle triCollinear2 = new Triangle(new Point2D(1,0),
+        new Point2D(1,1), new Point2D(1,-5));
+
+    assertTrue(triCollinear1.isCollinear());
+    assertTrue(triCollinear2.isCollinear());
+  }
+
+  /**
+   * test Triangle area method when it's collinear
+   */
+  @Test
+  public void testTriangleCollinear() {
+    Triangle triCollinear1 = new Triangle(new Point2D(0,0),
+        new Point2D(0,1), new Point2D(0,4));
+    Triangle triCollinear2 = new Triangle(new Point2D(1,0),
+        new Point2D(1,1), new Point2D(1,-5));
+
+    assertEquals(0, triCollinear1.area(), 0.001);
+    assertEquals(0, triCollinear2.area(), 0.001);
+  }
+
+  /**
+   * test PerimComparator and its difference with compareTo method
+   */
+  @Test
+  public void testPerimComparator() {
+    PerimComparator perimComparator = new PerimComparator();
+    Triangle tri3 = new Triangle(new Point2D(2,0),new Point2D(2,2),new Point2D(1,3));
+    Rectangle rect3 = new Rectangle(0,0,4,1);
+
+    // the perimeter of tri1 is smaller than perimeter of tri3
+    assertEquals(-1, perimComparator.compare(tri1,tri3));
+    // the area of tri1 is equal to the area of tri3
+    assertEquals(0, tri1.compareTo(tri3));
+
+    // the perimeter of rect1 is smaller than perimeter of rect3
+    assertEquals(-1, perimComparator.compare(rect1,rect3));
+    // the area of rect1 is larger than the area of rect3
+    assertEquals(1, rect1.compareTo(rect3));
+  }
 
 }
