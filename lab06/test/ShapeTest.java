@@ -1,3 +1,4 @@
+import java.awt.Point;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -101,6 +102,38 @@ public class ShapeTest {
   }
 
   /**
+   * test Point2D distToOrigin method
+   */
+  @Test
+  public void testPoint2DDistToOrigin() {
+    assertEquals(7.8102, rect1.distanceFromOrigin(), 0.001);
+    assertEquals(5, circle1.distanceFromOrigin(), 0.001);
+    assertEquals(1.4142, tri1.distanceFromOrigin(), 0.001);
+  }
+
+  /**
+   * test Point2D getX method
+   */
+  @Test
+  public void testPoint2DGetX() {
+    Point2D newPoint1 = new Point2D(2,3);
+    Point2D newPoint2 = new Point2D(0,-1.5);
+    assertEquals(2, newPoint1.getX(), 0.001);
+    assertEquals(0, newPoint2.getX(), 0.001);
+  }
+
+  /**
+   * test Point2D getY method
+   */
+  @Test
+  public void testPoint2DGetY() {
+    Point2D newPoint1 = new Point2D(2,3);
+    Point2D newPoint2 = new Point2D(0,-1.5);
+    assertEquals(3, newPoint1.getY(), 0.001);
+    assertEquals(-1.5, newPoint2.getY(), 0.001);
+  }
+
+  /**
    * test the constructor of the triangle,
    * it throws an IllegalArgumentException when points are not unique
    */
@@ -136,6 +169,19 @@ public class ShapeTest {
 
     assertEquals(0, triCollinear1.area(), 0.001);
     assertEquals(0, triCollinear2.area(), 0.001);
+  }
+
+  /**
+   * test Triangle compareTo method (smaller, greater, equal cases)
+   */
+  @Test
+  public void testTriangleCompareTo() {
+    Triangle tri3 = new Triangle(new Point2D(2,0),new Point2D(2,2),new Point2D(1,3));
+    Triangle tri4 = new Triangle(new Point2D(0,0),new Point2D(1,0),new Point2D(1,1));
+
+    assertEquals(-1, tri1.compareTo(tri2));
+    assertEquals(0, tri1.compareTo(tri3));
+    assertEquals(1, tri1.compareTo(tri4));
   }
 
   /**
