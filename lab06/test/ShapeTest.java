@@ -189,18 +189,28 @@ public class ShapeTest {
   @Test
   public void testPerimComparator() {
     PerimComparator perimComparator = new PerimComparator();
+
     Triangle tri3 = new Triangle(new Point2D(2,0),new Point2D(2,2),new Point2D(1,3));
+    Triangle tri4 = new Triangle(new Point2D(2,0),new Point2D(1,1),new Point2D(2,2));
     Rectangle rect3 = new Rectangle(0,0,4,1);
+    Rectangle rect4 = new Rectangle(0,0,1,4);
+    Circle circle3 = new Circle(0,0,5);
 
-    // the perimeter of tri1 is smaller than perimeter of tri3
+    // compare the perimeter of rectangles
     assertEquals(-1, perimComparator.compare(tri1,tri3));
-    // the area of tri1 is equal to the area of tri3
-    assertEquals(0, tri1.compareTo(tri3));
+    assertEquals(0,perimComparator.compare(tri1,tri4));
+    assertEquals(1,perimComparator.compare(tri2,tri1));
 
-    // the perimeter of rect1 is smaller than perimeter of rect3
+    // compare the perimeter of rectangles
     assertEquals(-1, perimComparator.compare(rect1,rect3));
-    // the area of rect1 is larger than the area of rect3
-    assertEquals(1, rect1.compareTo(rect3));
+    assertEquals(0, perimComparator.compare(rect4,rect3));
+    assertEquals(1, perimComparator.compare(rect2,rect3));
+
+    // compare the perimeter of circles
+    assertEquals(-1, perimComparator.compare(circle1,circle2));
+    assertEquals(0, perimComparator.compare(circle1,circle3));
+    assertEquals(1, perimComparator.compare(circle2,circle3));
+
   }
 
 }
