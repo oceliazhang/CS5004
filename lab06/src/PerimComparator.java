@@ -31,9 +31,18 @@ public class PerimComparator implements Comparator<Shape> {
    * comparator imposes orderings that are inconsistent with equals."
    *
    * Sort two shapes based on their perimeters
+   *
    */
   @Override
   public int compare(Shape o1, Shape o2) {
-    return Double.compare(o1.perimeter(), o2.perimeter());
+
+    int perimComparator = Double.compare(o1.perimeter(), o2.perimeter());
+
+    /* if perimeters are equal, preserve area as the natural ordering of shapes */
+    if (perimComparator == 0) {
+      return o1.compareTo(o2);
+    }
+
+    return perimComparator;
   }
 }
