@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 public class PawnTest {
     private Pawn myPawn = new Pawn(1,1,Color.WHITE);
+    private Pawn otherPawn = new Pawn(0,0,Color.BLACK);
 
     /**
      * test constructor.
@@ -19,7 +20,9 @@ public class PawnTest {
      */
     @Test
     public void testGetRow() {
+
         assertEquals(1, myPawn.getRow());
+        assertEquals(0, otherPawn.getRow());
     }
 
     /**
@@ -27,7 +30,9 @@ public class PawnTest {
      */
     @Test
     public void testGetColumn() {
+
         assertEquals(1, myPawn.getColumn());
+        assertEquals(0, otherPawn.getColumn());
     }
 
     /**
@@ -35,7 +40,9 @@ public class PawnTest {
      */
     @Test
     public void testGetColor() {
+
         assertEquals("WHITE", myPawn.getColor().toString());
+        assertEquals("BLACK", otherPawn.getColor().toString());
     }
 
     /**
@@ -84,5 +91,7 @@ public class PawnTest {
     public void testToString() {
         assertEquals("Pawn{row=1, column=1, color=WHITE}",
             myPawn.toString());
+        assertEquals("Pawn{row=0, column=0, color=BLACK}",
+            otherPawn.toString());
     }
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 public class KnightTest {
     private Knight myKnight = new Knight(0, 1, Color.BLACK);
+    private Knight otherKnight = new Knight(1, 1, Color.WHITE);
 
     /**
      * test constructor.
@@ -19,7 +20,9 @@ public class KnightTest {
      */
     @Test
     public void testGetRow() {
+
         assertEquals(0, myKnight.getRow());
+        assertEquals(1, otherKnight.getRow());
     }
 
     /**
@@ -27,7 +30,9 @@ public class KnightTest {
      */
     @Test
     public void testGetColumn() {
+
         assertEquals(1, myKnight.getColumn());
+        assertEquals(1, otherKnight.getColumn());
     }
 
     /**
@@ -35,7 +40,9 @@ public class KnightTest {
      */
     @Test
     public void testGetColor() {
+
         assertEquals("BLACK", myKnight.getColor().toString());
+        assertEquals("WHITE", otherKnight.getColor().toString());
     }
 
     /**
@@ -54,6 +61,8 @@ public class KnightTest {
     public void testCanMove() {
         assertTrue(myKnight.canMove(2,2));
         assertFalse(myKnight.canMove(1,4));
+        assertTrue(otherKnight.canMove(0,3));
+        assertFalse(otherKnight.canMove(1,4));
     }
 
     /**
@@ -76,5 +85,7 @@ public class KnightTest {
     public void testToString() {
         assertEquals("Knight{row=0, column=1, color=BLACK}",
             myKnight.toString());
+        assertEquals("Knight{row=1, column=1, color=WHITE}",
+            otherKnight.toString());
     }
 }

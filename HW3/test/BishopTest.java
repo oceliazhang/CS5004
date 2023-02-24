@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 public class BishopTest {
     private Bishop myBishop = new Bishop(0, 2, Color.BLACK);
+    private Bishop otherBishop = new Bishop(1, 1, Color.WHITE);
 
     /**
      * test constructor.
@@ -20,6 +21,7 @@ public class BishopTest {
     @Test
     public void testGetRow() {
         assertEquals(0, myBishop.getRow());
+        assertEquals(1, otherBishop.getRow());
     }
 
     /**
@@ -28,6 +30,7 @@ public class BishopTest {
     @Test
     public void testGetColumn() {
         assertEquals(2, myBishop.getColumn());
+        assertEquals(1, otherBishop.getColumn());
     }
 
     /**
@@ -35,7 +38,9 @@ public class BishopTest {
      */
     @Test
     public void testGetColor() {
+
         assertEquals("BLACK", myBishop.getColor().toString());
+        assertEquals("WHITE", otherBishop.getColor().toString());
     }
 
     /**
@@ -54,6 +59,8 @@ public class BishopTest {
     public void testCanMove() {
         assertTrue(myBishop.canMove(1,3));
         assertFalse(myBishop.canMove(1,4));
+        assertTrue(otherBishop.canMove(2,2));
+        assertFalse(otherBishop.canMove(1,4));
     }
 
     /**
@@ -76,5 +83,7 @@ public class BishopTest {
     public void testToString() {
         assertEquals("Bishop{row=0, column=2, color=BLACK}",
             myBishop.toString());
+        assertEquals("Bishop{row=1, column=1, color=WHITE}",
+            otherBishop.toString());
     }
 }

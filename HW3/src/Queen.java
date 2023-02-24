@@ -43,7 +43,14 @@ public class Queen extends AbstractChessPiece {
      */
     @Override
     public Boolean canMoveV2(int row, int col, ChessBoard board) {
+
+        // My Intellij says there are some duplicate code in here, since for several pieces,
+        // we have to check if its moving pattern is correct and if its destination is a same-color
+        // piece. And when I check if all the way to the destination is empty, I use same helper
+        // variables for several pieces. I don't think these can be considered duplicate code since
+        // the overall implementation for canMoveV2 method for each type of piece are different.
         // check if the moving pattern is correct
+
         if (!this.canMove(row, col)) {
             return false;
         }

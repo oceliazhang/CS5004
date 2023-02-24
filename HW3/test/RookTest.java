@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 public class RookTest {
     private Rook myRook = new Rook(0,0,Color.BLACK);
+    private Rook otherRook = new Rook(1,1,Color.WHITE);
 
     /**
      * test constructor.
@@ -19,7 +20,9 @@ public class RookTest {
      */
     @Test
     public void testGetRow() {
+
         assertEquals(0, myRook.getRow());
+        assertEquals(1, otherRook.getRow());
     }
 
     /**
@@ -27,7 +30,9 @@ public class RookTest {
      */
     @Test
     public void testGetColumn() {
+
         assertEquals(0, myRook.getColumn());
+        assertEquals(1, otherRook.getRow());
     }
 
     /**
@@ -35,7 +40,9 @@ public class RookTest {
      */
     @Test
     public void testGetColor() {
+
         assertEquals("BLACK", myRook.getColor().toString());
+        assertEquals("WHITE", otherRook.getColor().toString());
     }
 
     /**
@@ -54,6 +61,8 @@ public class RookTest {
     public void testCanMove() {
         assertTrue(myRook.canMove(2,0));
         assertFalse(myRook.canMove(1,4));
+        assertTrue(otherRook.canMove(1,0));
+        assertFalse(otherRook.canMove(2,4));
     }
 
     /**
@@ -76,5 +85,7 @@ public class RookTest {
     public void testToString() {
         assertEquals("Rook{row=0, column=0, color=BLACK}",
             myRook.toString());
+        assertEquals("Rook{row=1, column=1, color=WHITE}",
+            otherRook.toString());
     }
 }

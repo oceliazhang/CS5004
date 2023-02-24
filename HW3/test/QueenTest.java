@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 public class QueenTest {
     private Queen myQueen = new Queen(0,3,Color.BLACK);
+    private Queen otherQueen = new Queen(1,1,Color.WHITE);
 
     /**
      * test constructor.
@@ -19,7 +20,9 @@ public class QueenTest {
      */
     @Test
     public void testGetRow() {
+
         assertEquals(0, myQueen.getRow());
+        assertEquals(1, otherQueen.getRow());
     }
 
     /**
@@ -27,7 +30,9 @@ public class QueenTest {
      */
     @Test
     public void testGetColumn() {
+
         assertEquals(3, myQueen.getColumn());
+        assertEquals(1, otherQueen.getColumn());
     }
 
     /**
@@ -35,7 +40,9 @@ public class QueenTest {
      */
     @Test
     public void testGetColor() {
+
         assertEquals("BLACK", myQueen.getColor().toString());
+        assertEquals("WHITE", otherQueen.getColor().toString());
     }
 
     /**
@@ -54,6 +61,8 @@ public class QueenTest {
     public void testCanMove() {
         assertTrue(myQueen.canMove(2,1));
         assertFalse(myQueen.canMove(1,5));
+        assertTrue(otherQueen.canMove(2,1));
+        assertFalse(otherQueen.canMove(0,5));
     }
 
     /**
@@ -76,5 +85,7 @@ public class QueenTest {
     public void testToString() {
         assertEquals("Queen{row=0, column=3, color=BLACK}",
             myQueen.toString());
+        assertEquals("Queen{row=1, column=1, color=WHITE}",
+            otherQueen.toString());
     }
 }

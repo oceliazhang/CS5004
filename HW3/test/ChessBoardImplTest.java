@@ -79,6 +79,8 @@ public class ChessBoardImplTest {
   public void testGetPiece() {
     assertEquals("Queen{row=0, column=3, color=WHITE}",
         myBoard.getPiece(0, 3).toString());
+    assertEquals("Bishop{row=3, column=3, color=BLACK}",
+        myBoard.getPiece(3, 3).toString());
   }
 
   /**
