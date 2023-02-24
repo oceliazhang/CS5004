@@ -23,8 +23,14 @@ public class Triangle extends AbstractShape{
    * @return true if collinear, false if not
    */
   public boolean isCollinear() {
-    return (this.reference.getX() == point2.getX() && point2.getX() == point3.getX())
-        || (this.reference.getY() == point2.getY() && point2.getY() == point3.getY());
+    if (reference.getX() == point2.getX() && reference.getX() == point3.getX()) {
+      return true;
+    }
+
+    double slopeA = (reference.getY() - point2.getY()) / (reference.getX() - point2.getX());
+    double slopeB = (reference.getY() - point3.getY()) / (reference.getX() - point3.getX());
+
+    return slopeA == slopeB;
   }
 
   /**
@@ -66,14 +72,18 @@ public class Triangle extends AbstractShape{
    *
    * @param factor factor of resizing
    * @return the resized Shape
+   * @throws IllegalArgumentException if factor <= 0
    */
   @Override
   public Shape resize(double factor) {
+    if (factor <= 0) {
+      throw new IllegalArgumentException("factor should be positive");
+    }
     double sqrtFactor = Math.sqrt(factor);
-    double newX2 = reference.getX() + sqrtFactor * (reference.getX() - point2.getX());
-    double newY2 = reference.getY() + sqrtFactor * (reference.getY() - point2.getY());
-    double newX3 = reference.getX() + sqrtFactor * (reference.getX() - point3.getX());
-    double newY3 = reference.getY() + sqrtFactor * (reference.getY() - point3.getY());
+    double newX2 = reference.getX() + sqrtFactor * (point2.getX() - reference.getX());
+    double newY2 = reference.getY() + sqrtFactor * (point2.getY() - reference.getY());
+    double newX3 = reference.getX() + sqrtFactor * (point3.getX() - reference.getX());
+    double newY3 = reference.getY() + sqrtFactor * (point3.getY() - reference.getY());
     Point2D newPoint2 = new Point2D(newX2, newY2);
     Point2D newPoint3 = new Point2D(newX3, newY3);
     return new Triangle(this.reference, newPoint2, newPoint3);

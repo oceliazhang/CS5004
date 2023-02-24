@@ -81,7 +81,7 @@ public class ShapeTest {
   @Test
   public void testResizes() {
     Shape resizedCircle1,resizedCircle2,resizedCircle3,resizedRect1,
-            resizedRect2,resizedTri1,resizedTri2;
+            resizedRect2,resizedTri1,resizedTri2,resizedTri3;
 
     resizedCircle1 = circle1.resize(2.5);
     resizedCircle2 = circle2.resize(0);
@@ -98,6 +98,24 @@ public class ShapeTest {
     assertEquals(0.001*rect2.area(),resizedRect2.area(),0.001);
     assertEquals(4*tri1.area(),resizedTri1.area(),0.001);
     assertEquals(121*tri2.area(),resizedTri2.area(),0.001);
+  }
+
+  /**
+   * test triangle's resize method
+   * when factor == 0, throw IllegalArgumentException
+   */
+  @Test (expected = IllegalArgumentException.class)
+  public void testTriResizeZero() {
+    tri1.resize(0);
+  }
+
+  /**
+   * test triangle's resize method
+   * when factor is negative, throw IllegalArgumentException
+   */
+  @Test (expected = IllegalArgumentException.class)
+  public void testTriResizeNegative() {
+    tri1.resize(-1);
   }
 
   /**
@@ -151,9 +169,13 @@ public class ShapeTest {
         new Point2D(0,1), new Point2D(0,4));
     Triangle triCollinear2 = new Triangle(new Point2D(1,0),
         new Point2D(1,1), new Point2D(1,-5));
+    Triangle triCollinear3 = new Triangle(new Point2D(0,0),
+        new Point2D(1,1), new Point2D(2,2));
 
     assertTrue(triCollinear1.isCollinear());
     assertTrue(triCollinear2.isCollinear());
+    assertTrue(triCollinear3.isCollinear());
+
   }
 
   /**
@@ -165,9 +187,12 @@ public class ShapeTest {
         new Point2D(0,1), new Point2D(0,4));
     Triangle triCollinear2 = new Triangle(new Point2D(1,0),
         new Point2D(1,1), new Point2D(1,-5));
+    Triangle triCollinear3 = new Triangle(new Point2D(0,0),
+        new Point2D(1,1), new Point2D(2,2));
 
     assertEquals(0, triCollinear1.area(), 0.001);
     assertEquals(0, triCollinear2.area(), 0.001);
+    assertEquals(0, triCollinear3.area(), 0.001);
   }
 
   /**
