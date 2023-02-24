@@ -81,7 +81,7 @@ public class ShapeTest {
   @Test
   public void testResizes() {
     Shape resizedCircle1,resizedCircle2,resizedCircle3,resizedRect1,
-            resizedRect2,resizedTri1,resizedTri2,resizedTri3;
+            resizedRect2,resizedTri1,resizedTri2;
 
     resizedCircle1 = circle1.resize(2.5);
     resizedCircle2 = circle2.resize(0);
@@ -148,6 +148,21 @@ public class ShapeTest {
     Point2D newPoint2 = new Point2D(0,-1.5);
     assertEquals(3, newPoint1.getY(), 0.001);
     assertEquals(-1.5, newPoint2.getY(), 0.001);
+  }
+
+  /**
+   * test Point2D equals method
+   */
+  @Test
+  public void testPoint2DEquals() {
+    Point2D newPoint1 = new Point2D(2,3);
+    Point2D newPoint2 = new Point2D(2,3);
+    Point2D newPoint3 = new Point2D(2,3);
+    Point2D newPoint4 = new Point2D(1,3);
+    assertTrue(newPoint1.equals(newPoint2));
+    assertTrue(newPoint2.equals(newPoint3));
+    assertFalse(newPoint4.equals(newPoint2));
+
   }
 
   /**
