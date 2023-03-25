@@ -34,7 +34,7 @@ public class MyStackTest {
    * test push() method with integer/double/string data types stack
    */
   @Test
-  public void push() {
+  public void testPush() {
     integerMyStack.push(1);
     doubleMyStack.push(0.5);
     stringMyStack.push("a");
@@ -48,7 +48,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void popExceptionInteger() {
+  public void testPopExceptionInteger() {
     integerMyStack.pop();
   }
 
@@ -57,7 +57,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void popExceptionDouble() {
+  public void testPopExceptionDouble() {
     doubleMyStack.pop();
   }
 
@@ -66,7 +66,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void popExceptionString() {
+  public void testPopExceptionString() {
     stringMyStack.pop();
   }
 
@@ -74,7 +74,7 @@ public class MyStackTest {
    * test pop() method with integer/double/string data types stack
    */
   @Test
-  public void pop() {
+  public void testPop() {
     // set up the integer/double/string data types stack
     integerMyStack.push(1);
     doubleMyStack.push(0.5);
@@ -96,7 +96,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void topExceptionInteger() {
+  public void testTopExceptionInteger() {
     integerMyStack.top();
   }
 
@@ -105,7 +105,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void topExceptionDouble() {
+  public void testTopExceptionDouble() {
     doubleMyStack.top();
   }
 
@@ -114,7 +114,7 @@ public class MyStackTest {
    * throws EmptyStackException when stack is empty
    */
   @Test (expected = EmptyStackException.class)
-  public void topExceptionString() {
+  public void testTopExceptionString() {
     stringMyStack.top();
   }
 
@@ -122,7 +122,7 @@ public class MyStackTest {
    * test top() method with integer/double/string data types stack
    */
   @Test
-  public void top() {
+  public void testTop() {
     // set up the integer/double/string data types stack
     integerMyStack.push(1);
     doubleMyStack.push(0.5);
@@ -143,7 +143,7 @@ public class MyStackTest {
    * test empty() method with integer/double/string data types stack
    */
   @Test
-  public void empty() {
+  public void testEmpty() {
     // test empty stack returns true
     assertTrue(integerMyStack.empty());
     assertTrue(doubleMyStack.empty());

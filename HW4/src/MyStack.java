@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /**
- * A generic implementation of a stack using an ArrayList as s the concrete representation
+ * A generic implementation of a stack using an ArrayList as the concrete representation
  * of the stack's data
  * @param <T> the type of elements stored in the stack
  */
