@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /**
- * A generic implementation of a stack using an ArrayList as the concrete representation
- * of the stack's data
+ * This class contains a generic implementation of a stack using an ArrayList as the concrete
+ * representation of the stack's data, with push(), pop(), top(), empty() four main methods
+ * and a constructor and a toString() method
  * @param <T> the type of elements stored in the stack
  */
 public class MyStack<T> {

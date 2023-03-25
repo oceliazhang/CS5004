@@ -5,7 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * test all the methods in MyStack<T> class with different data types(integer, double, string)
+ * This class contains all the tests of all the methods in MyStack<T> class
+ * with different data types(integer, double, string)
  */
 public class MyStackTest {
   // initialize three data types stack
