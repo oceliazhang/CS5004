@@ -61,8 +61,8 @@ public class MyStack<T> {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder("Stack: ");
-    for (T x : stack) {
-      sb.append(x).append(" ");
+    for (T t : stack) {
+      sb.append(t).append(" ");
     }
     return sb.toString().trim();
   }
