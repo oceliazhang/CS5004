@@ -2,7 +2,7 @@
  * This interface contains all operations that all types of shapes
  * should support.
  */
-public interface Shape extends Comparable<Shape>{
+public interface Shape extends Comparable<Shape> {
 
   /**
    * Returns the distance of this shape from the origin. The distance is

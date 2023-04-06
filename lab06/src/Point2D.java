@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * This class represents a 2D point. This point is denoted in Cartesian
  * coordinates as (x,y).
@@ -63,4 +65,8 @@ public class Point2D {
     return Double.compare(x, other.x) == 0 && Double.compare(y, other.y) == 0;
   }
 
+  @Override
+  public int hashCode() {
+    return Objects.hash(x, y);
+  }
 }
