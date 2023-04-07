@@ -12,7 +12,7 @@ public class TicTacToeModelTest {
   private TicTacToeModel model;
 
   /**
-   * test move() method
+   * test move() method with three assertions
    */
   @Test
   public void testMove() {
@@ -82,7 +82,7 @@ public class TicTacToeModelTest {
   }
 
   /**
-   * test the getMarkAt() method
+   * test the getMarkAt() method when there is mark or there isn't a mark
    */
   @Test
   public void testGetMarkAt() {
