@@ -131,6 +131,18 @@ public class TicTacToeModelTest {
     model.move(1,0);
     model.move(0,0);
     assertTrue(model.isGameOver());
+
+    // at the end of the game, the game is over
+    model.move(2,1);
+    model.move(2,0);
+    model.move(0,2);
+    model.move(1,0);
+    model.move(1,1);
+    model.move(0,1);
+    model.move(0,0);
+    model.move(2,2);
+    model.move(1,2);
+    assertTrue(model.isGameOver());
   }
 
   /**
@@ -145,6 +157,9 @@ public class TicTacToeModelTest {
     }
   }
 
+  /**
+   * test the getWinner() method with three different situations (X wins, O wins, or tie)
+   */
   @Test
   public void testGetWinner() {
     // Player X wins the game

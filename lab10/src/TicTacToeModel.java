@@ -1,8 +1,11 @@
 /**
  * The TicTacToeModel interface represents the model of a Tic-Tac-Toe game.
- * It provides five methods allowing two players to play the game
- * The controller team can represent the board, make moves, get game status,
- * determine next player and winner through this model.
+ * It includes all public methods that concrete classes need to implement which allows
+ * two players to play the game.
+ * The user of this interface have precise control over where the X and O to be placed
+ * The user can place a mark only in an empty cell. Player X always plays fist, and X and O
+ * moves alternatively. The user can access the mark in any cell by the column and row index. The
+ * user can tell when the game is over and who the winner is.
  */
 public interface TicTacToeModel {
   /**
