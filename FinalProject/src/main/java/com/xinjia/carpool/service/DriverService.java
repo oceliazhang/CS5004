@@ -5,9 +5,11 @@ import com.xinjia.carpool.model.CarFeature;
 import com.xinjia.carpool.model.DTO.FindDriverRequest;
 import com.xinjia.carpool.model.Driver;
 import com.xinjia.carpool.model.Passenger;
+import com.xinjia.carpool.model.Schedule;
 import com.xinjia.carpool.repository.CarRepository;
 import com.xinjia.carpool.repository.DriverRepository;
 import com.xinjia.carpool.repository.PassengerRepository;
+import com.xinjia.carpool.repository.ScheduleRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,6 +30,9 @@ public class DriverService {
 
   @Autowired
   private CarRepository carRepository;
+
+  @Autowired
+  private ScheduleRepository scheduleRepository;
 
 //  @Transactional
 //  public Driver createDriver(Driver driver) {
@@ -99,6 +104,20 @@ public class DriverService {
 
     carRepository.save(car);
 
+    return driverRepository.save(driver);
+  }
+
+  public Driver cancelRide(String username) {
+    Driver driver = driverRepository.findByUsername(username);
+    if (driver == null) {
+      throw new IllegalArgumentException("Username does not exist");
+    }
+    driver.setRide(null);
+    for (Schedule schedule : driver.getItinerary()) {
+      schedule.setDriver(null);
+      scheduleRepository.save(schedule);
+    }
+    driver.setItinerary(null);
     return driverRepository.save(driver);
   }
 
