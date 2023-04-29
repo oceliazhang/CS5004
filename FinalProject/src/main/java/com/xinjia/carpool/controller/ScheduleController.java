@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The ScheduleController class handles requests related to schedules.
+ */
 @RestController
 @RequestMapping("/schedule")
 public class ScheduleController {
@@ -17,8 +20,17 @@ public class ScheduleController {
   @Autowired
   private ScheduleService scheduleService;
 
+  /**
+   * Updates an existing schedule.
+   *
+   * @param schedule the schedule to update
+   * @param id the ID of the schedule to update
+   * @return a ResponseEntity with the updated Schedule and an HTTP status of OK, or a bad request
+   *         response if the update failed
+   */
   @PutMapping("/update/{id}")
-  public ResponseEntity<Schedule> updateSchedule(@RequestBody Schedule schedule, @PathVariable Long id){
+  public ResponseEntity<Schedule> updateSchedule(@RequestBody Schedule schedule,
+      @PathVariable Long id){
     try {
       Schedule updatedSchedule = scheduleService.updateSchedule(schedule, id);
       return ResponseEntity.ok(updatedSchedule);
@@ -27,7 +39,5 @@ public class ScheduleController {
     }
   }
 
-
-
-
 }
+

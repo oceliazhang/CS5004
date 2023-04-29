@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The PassengerController class is a RESTful API controller that handles HTTP requests related to passenger operations.
+ */
 @RestController
 @RequestMapping("/passengers")
 public class PassengerController {
@@ -30,6 +33,12 @@ public class PassengerController {
   @Autowired
   private PassengerService passengerService;
 
+  /**
+   * Creates a new passenger record in the database.
+   * @param passenger The Passenger object containing the passenger's information.
+   * @return A ResponseEntity containing the newly created Passenger object and an HTTP status code of 201 CREATED.
+   * If an error occurs during the creation process, a bad request response is returned with an error message.
+   */
   @PostMapping("/create")
   public ResponseEntity<Object> createPassenger(@RequestBody Passenger passenger) {
     try {
@@ -40,12 +49,23 @@ public class PassengerController {
     }
   }
 
-
+  /**
+   * Finds a list of drivers that match the specified search criteria.
+   * @param findDriverRequest A FindDriverRequest object containing the search criteria.
+   * @return A List of Driver objects that match the search criteria.
+   */
   @GetMapping("/find-matching-drivers")
-  public List<Driver> findMatchingDrivers(@RequestBody FindDriverRequest finddriverRequest) {
-    return driverService.findMatchingDrivers(finddriverRequest);
+  public List<Driver> findMatchingDrivers(@RequestBody FindDriverRequest findDriverRequest) {
+    return driverService.findMatchingDrivers(findDriverRequest);
   }
 
+  /**
+   * Assigns a driver to a passenger's ride request.
+   * @param driverId The ID of the driver to assign.
+   * @param username The username of the passenger making the ride request.
+   * @return The Driver object that was assigned to the ride request.
+   * If an error occurs during the assignment process, null is returned.
+   */
   @PutMapping("/choose-driver/{driverId}")
   public Driver chooseDriver(@PathVariable long driverId, @RequestBody String username) {
     try {
@@ -55,16 +75,26 @@ public class PassengerController {
     }
   }
 
+  /**
+   * Retrieves a passenger's record from the database.
+   * @param passengerId The ID of the passenger to retrieve.
+   * @return The Passenger object with the specified ID.
+   * @throws NotFoundException If the specified passenger record cannot be found in the database.
+   */
   @GetMapping("/get-passenger/{passengerId}")
   public Passenger getPassenger(@PathVariable long passengerId) throws NotFoundException {
     return passengerService.getPassengerById(passengerId);
   }
 
+  /**
+   * Cancels a passenger's ride request and removes the associated driver assignment.
+   * @param passengerId The ID of the passenger making the ride request.
+   * @return The updated Passenger object with the cancelled ride request.
+   * @throws NotFoundException If the specified passenger record cannot be found in the database.
+   */
   @PutMapping("/cancel-ride/{passengerId}")
   public Passenger cancelRide(@PathVariable long passengerId) throws NotFoundException {
 
     return passengerService.cancelRide(passengerId);
   }
-
-
 }

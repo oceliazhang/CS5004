@@ -8,7 +8,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@EqualsAndHashCode(callSuper = true)
+/**
+ * A class that represents a driver in the system.
+ * Extends the User class and implements the Comparable interface.
+ * Contains information about the driver's car, rating, itinerary, match weight and ride.
+ */
 @Entity
 @Table
 @Getter
@@ -31,12 +35,29 @@ public class Driver extends User implements Comparable<Driver> {
   @Embedded
   private Ride ride;
 
+  /**
+   * Default constructor for the Driver class.
+   */
   public Driver() {
 
   }
 
+  /**
+   * Adds a schedule to the driver's itinerary.
+   *
+   * @param schedule the schedule to be added
+   */
   public void addSchedule(Schedule schedule) {
     itinerary.add(schedule);
+  }
+
+  /**
+   * Removes a schedule from the driver's itinerary.
+   *
+   * @param schedule the schedule to be removed
+   */
+  public void removeSchedule(Schedule schedule) {
+    itinerary.remove(schedule);
   }
 
   /**
@@ -52,7 +73,4 @@ public class Driver extends User implements Comparable<Driver> {
     return Integer.compare(this.matchWeight, other.getMatchWeight());
   }
 
-  public void removeSchedule(Schedule schedule) {
-    itinerary.remove(schedule);
-  }
 }

@@ -13,21 +13,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This class is the REST API controller for managing drivers.
+ */
 @RestController
 @RequestMapping("/drivers")
 public class DriverController {
 
   @Autowired
-  private final DriverService driverService;
+  private DriverService driverService;
 
-  public DriverController(DriverService driverService) {
-    this.driverService = driverService;
-  }
-
+  /**
+   * Creates a new driver.
+   *
+   * @param driver The driver to create.
+   * @return A ResponseEntity containing the saved driver and a status code of 201 (Created).
+   *         If an error occurs, a bad request response is returned.
+   */
   @PostMapping("/create")
-//  public Driver createDriver(@RequestBody Driver driver) {
-//    return driverService.createDriver(driver);
-//  }
   public ResponseEntity<Object> createDriver(@RequestBody Driver driver) {
     try {
       Driver savedDriver = driverService.createDriver(driver);
@@ -37,6 +40,13 @@ public class DriverController {
     }
   }
 
+  /**
+   * Cancels a ride for the driver with the given username.
+   *
+   * @param username The username of the driver.
+   * @return A ResponseEntity containing the updated driver and a status code of 201 (Created).
+   *         If an error occurs, a bad request response is returned.
+   */
   @PutMapping("/cancel-ride")
   public ResponseEntity<Object> cancelRide(@RequestBody String username) {
     try {
@@ -47,13 +57,15 @@ public class DriverController {
     }
   }
 
-
-
+  /**
+   * Gets the driver with the given ID.
+   *
+   * @param id The ID of the driver to get.
+   * @return The driver with the given ID.
+   */
   @GetMapping("/{id}")
   public Driver getDriver(@PathVariable Long id) {
     return driverService.getDriverById(id);
   }
-
-
 }
 

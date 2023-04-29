@@ -1,16 +1,16 @@
-INSERT INTO user (id, gender, name, note)
+INSERT INTO user (id, gender, name, note, username, password)
 VALUES
-    (1, 'UNKNOWN', 'hua', 'no smoke'),
-    (2, 'UNKNOWN', 'jia', 'smoke please'),
-    (3, 'UNKNOWN', 'irene', ''),
-    (4, 'UNKNOWN', 'zijun', ''),
-    (5, 'UNKNOWN', 'bruce', '');
+    (1, 'UNKNOWN', 'hua', 'no smoking', 'huahua', '123456'),
+    (2, 'FEMALE', 'jia', 'i might be late for a bit', 'jiajia', '123456'),
+    (3, 'UNKNOWN', 'irene', '', 'irene', '123456'),
+    (4, 'UNKNOWN', 'zijun', '', 'zijun', '123456'),
+    (5, 'MALE', 'evan', '', 'evan', '123456');
 
 INSERT INTO car (id, make, model, num_seats, num_luggage, color, license_plate)
 VALUES
     (1, 'toyota', 'corolla', '4', '0', 'black', '9CVT417'),
-    (2, 'nissan', 'sentra', '3', '2', 'blue', 'sese'),
-    (3, 'tesla', 'model3', '2', '1', 'grey', 'huang');
+    (2, 'nissan', 'sentra', '1', '2', 'blue', 'sese'),
+    (3, 'tesla', 'model3', '2', '1', 'grey', '123456');
 
 INSERT INTO car_car_features (car_id, car_features)
 VALUES
@@ -24,9 +24,9 @@ VALUES
 
 INSERT INTO driver (id, car_id, destination_address, arrival_time)
 VALUES
-    (2, 1, 'NEU', '2022-12-03T20:20:30'),
-    (3, 2, 'NEU', '2022-12-03T10:20:30'),
-    (5, 3, 'sanjose', '2022-12-03T10:20:30');
+    (2, 1, 'NEU', '2023-05-01T12:00:00'),
+    (3, 2, 'NEU', '2023-05-01T12:00:00'),
+    (5, 3, 'sanjose', '2023-05-02T12:00:00');
 
 INSERT INTO passenger (id, num_of_people)
 VALUES

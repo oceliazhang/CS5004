@@ -2,10 +2,12 @@ package com.xinjia.carpool.model;
 
 
 import javax.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Represents a User entity with basic information.
+ */
 @Entity
 @Table
 @Getter
@@ -15,7 +17,7 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long ID;
+  private Long id;
 
   @Column
   private String name;
@@ -35,6 +37,9 @@ public class User {
   @Column
   private String password;
 
+  /**
+   * Default constructor for the User class.
+   */
   public User() {
 
   }

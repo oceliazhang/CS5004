@@ -3,11 +3,13 @@ package com.xinjia.carpool.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-
+/**
+ * Represents a Schedule entity with pickup address, destination address, pickup time,
+ * and arrival time.
+ */
 @Entity
 @Table(name = "schedule")
 @Getter
@@ -17,14 +19,6 @@ public class Schedule {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-
-//  @OneToOne(cascade = CascadeType.ALL)
-//  @JoinColumn(name = "pickup_address_id", referencedColumnName = "id")
-//  private Address pickupAddress;
-//
-//  @OneToOne(cascade = CascadeType.ALL)
-//  @JoinColumn(name = "destination_address_id", referencedColumnName = "id")
-//  private Address destinationAddress;
 
   @Column
   private String pickupAddress;
